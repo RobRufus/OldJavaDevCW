@@ -16,7 +16,7 @@ public class Player {
 	}
 	
 	
-	public void instructRobot(Actions instruction)
+	public void instructRobot(Action instruction)
 	{
 		//class to allow selection of actions by user
 	}

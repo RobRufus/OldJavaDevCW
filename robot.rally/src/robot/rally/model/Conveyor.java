@@ -4,7 +4,7 @@ import robot.rally.model.*;
 
 public class Conveyor extends GridEntity  {
 
-	Directions direction;
+	Direction direction;
 	
 	
 	
