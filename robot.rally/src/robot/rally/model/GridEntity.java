@@ -1,22 +1,34 @@
 package robot.rally.model;
 
+import org.junit.Test;
 
 public abstract class GridEntity {
 
-		int location[][];
+		int locationX;
+		int locationY;
 		
-		public GridEntity() 
+		public GridEntity(int x, int y) 
 		{
-			//constructor for grid entities
+			locationX = x;
+			locationY = y;
 		}
 		
 		
-		public void activate(Board currentBoard,int location[][], Board updatedBoard)
+		public void activate(Board currentBoard,int locationX, int locationY, Board updatedBoard)
 		{
 		//activate class to be called by the simulator when going through the board
 		}
 		
 		
+		public int getLocationX() { // Gets X location
+			return locationX;
+		}
+		
+		public int getLocationY() { // Gets y location
+			return locationY;
+		}
+
+				
 }
 
 
