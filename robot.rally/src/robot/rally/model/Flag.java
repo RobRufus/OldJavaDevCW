@@ -4,7 +4,10 @@ public class Flag extends GridEntity  {
 
 	int flagID;
 	
-	
+	public Flag(int locationX, int locationY, int flagID)
+	{
+		super(locationX, locationY); 
+	}
 	
 	public void activate()
 	{

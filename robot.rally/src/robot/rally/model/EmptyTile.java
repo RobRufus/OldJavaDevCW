@@ -1,9 +1,8 @@
 package robot.rally.model;
 
-public class Pit extends GridEntity  {
+public class EmptyTile extends GridEntity  {
 
-	
-	public Pit(int locationX, int locationY)
+	public EmptyTile(int locationX, int locationY)
 	{
 		super(locationX, locationY); 
 	}

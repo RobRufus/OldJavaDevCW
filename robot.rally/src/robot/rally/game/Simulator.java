@@ -6,24 +6,30 @@ import org.junit.Test;
 
 import robot.rally.model.*;
 
+
 public class Simulator {
 
 	private ArrayList[][] board;
 	private Player[] playerArray;
 	
+	//creates a board object at the start of the game.
+	public robot.rally.model.Board instanceOfBoard;
+	
 	public Simulator() {
 
 		//Simulator class constructor
+		instanceOfBoard = new robot.rally.model.Board();
+
 	}
 	
-	
+	/*
 	
 	
 	@Test
 	public void Main() 
 	{
 		
-		Cog cog = new Cog();
+		Cog cog = new Cog(+);
 		Conveyor conveyor = new Conveyor();
 		Flag flag = new Flag();
 		Pit pit = new Pit();
@@ -43,7 +49,7 @@ public class Simulator {
 		}
 
 		
-		board[0][0].set(0, cog);		//example board elements set
+		//board[0][0].set(0, cog);		//example board elements set
 		board[4][4].set(0, conveyor);
 		board[1][2].set(0, flag);
 		board[2][3].set(0, robot);
@@ -95,18 +101,109 @@ public class Simulator {
 			
 	}
 	
-	
+	*/
 	
 	
 	public void generateBoard() 
 	{
-		//creates a board object at the start of the game.
+
+
+		//read board file
+		robot.rally.IO.Input inputString = new robot.rally.IO.Input();
+		String boardData = inputString.readBoardFile("conveyor-loops.brd");
+		
+		
+
+		for (int i = 0; i < boardData.length();)		//iterates through the file string, reseting the corresponding board location when appropriate.
+		{
+			int x=0,y=0;
+			
+			
+			if (boardData.substring(i, i+1) == "/n" )		//resets grid location trackers when there is a new line
+			{	
+				x++;
+				y=0;
+			}
+			
+			switch (boardData.charAt(i))	//iterates through finding the appropriate thing to generate based on the board location
+			{
+			
+			case '1':  instanceOfBoard.placeEntity(x, y, new robot.rally.model.Flag(x,y,'1'));		
+			y++;
+            	break;
+			case '2':  instanceOfBoard.placeEntity(x, y, new robot.rally.model.Flag(x,y,'2'));		
+			y++;
+            	break;
+			case '3':  instanceOfBoard.placeEntity(x, y, new robot.rally.model.Flag(x,y,'3'));		
+			y++;
+            	break;
+			case '4':  instanceOfBoard.placeEntity(x, y, new robot.rally.model.Flag(x,y,'4'));		
+			y++;
+            	break;
+			case '+':  instanceOfBoard.placeEntity(x, y, new robot.rally.model.Cog(x,y,'R'));		
+			y++;
+            	break;
+			case '-':  instanceOfBoard.placeEntity(x, y, new robot.rally.model.Cog(x,y,'R'));		
+			y++;
+            	break;
+			case 'x':  instanceOfBoard.placeEntity(x, y, new robot.rally.model.Pit(x,y));		
+			y++;
+            	break;
+			case 'A':  instanceOfBoard.placeEntity(x, y, new robot.rally.model.SpawnPoint(x,y,"A"));		
+			y++;
+            	break;
+			case 'B':  instanceOfBoard.placeEntity(x, y, new robot.rally.model.SpawnPoint(x,y,"B"));		
+			y++;
+            	break;
+			case 'C':  instanceOfBoard.placeEntity(x, y, new robot.rally.model.SpawnPoint(x,y,"C"));		
+			y++;
+            	break;
+			case 'D':  instanceOfBoard.placeEntity(x, y, new robot.rally.model.SpawnPoint(x,y,"D"));		
+			y++;
+        		break;
+			case '<':  instanceOfBoard.placeEntity(x, y, new robot.rally.model.Conveyor(x,y,new Directions()));		
+			y++;
+        		break;
+			case '>':  instanceOfBoard.placeEntity(x, y, new robot.rally.model.Conveyor(x,y,new Directions()));			
+			y++;
+        		break;
+			case '^':  instanceOfBoard.placeEntity(x, y, new robot.rally.model.Conveyor(x,y,new Directions()));			
+			y++;
+        		break;
+			case 'v':  instanceOfBoard.placeEntity(x, y, new robot.rally.model.Conveyor(x,y,new Directions()));			
+			y++;
+				break;
+			default :  instanceOfBoard.placeEntity(x, y, new robot.rally.model.EmptyTile(x,y));			
+			y++;
+
+			}
+			 i++;		// moves on to the next char in the board file.
+		}
+		
+		
+		
+
 	}
 	
 	
 	public void stepThroughBoard() 
 	{
-		//activates board entities one by one after the player movement
+		//activates board entities one by one after the player movement			//----------------------------needs working on
+
+		/*
+		
+		for(int i=0; i<instanceOfBoard.length; i++) 
+		{
+			for(int j=0; j<instanceOfBoard[i].length; j++) 
+			{
+				instanceOfBoard.getLocation(i, j);		
+				
+				
+				
+			}
+		}
+	
+		*/
 	}
 	
 	
