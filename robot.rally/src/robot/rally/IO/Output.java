@@ -17,9 +17,10 @@ public class Output {
 	}
 	
 	
-	public void OutToConsole() 
+	public void OutToConsole(int playerID) 
 	{
 		//prints out to console on victory
+		System.out.print("The Winner is player" + playerID);
 	}
 	
 
