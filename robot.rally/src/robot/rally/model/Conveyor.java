@@ -6,7 +6,7 @@ public class Conveyor extends GridEntity  {
 
 	Direction direction;
 	
-	public Conveyor(int locationX, int locationY, Directions direction)
+	public Conveyor(int locationX, int locationY, Direction direction)
 	{
 		super(locationX, locationY); 
 	}

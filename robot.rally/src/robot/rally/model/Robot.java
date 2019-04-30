@@ -10,19 +10,12 @@ public class Robot extends GridEntity {
 	int actionCount;
 	
 	
-<<<<<<< HEAD
 	public Robot(int x, int y)
 	{
 		super(x,y);
 		direction = Direction.NORTH; // Default Direction North
 		isAlive = true; // Default to being alive
 		actionCount = 5; // Default amount of possible turns
-=======
-	public Robot(int locationX, int locationY)
-	{
-		super(locationX, locationY); 
-		//constructor for robot class
->>>>>>> b0c4b18d03ef1293a3ba52ac9009dcef02ff60f2
 	}
 	
 	public void updateLocation(int x, int y) { // Updates location of Robot
