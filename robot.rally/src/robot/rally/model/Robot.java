@@ -10,8 +10,9 @@ public class Robot extends GridEntity {
 	int actionCount;
 	
 	
-	public Robot()
+	public Robot(int locationX, int locationY)
 	{
+		super(locationX, locationY); 
 		//constructor for robot class
 	}
 	

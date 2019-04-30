@@ -3,11 +3,13 @@ package robot.rally.model;
 
 public abstract class GridEntity {
 
-		int location[][];
+		int locationX, locationY;
 		
-		public GridEntity() 
+		public GridEntity(int locationX, int locationY) 
 		{
-			//constructor for grid entities
+			//constructor for grid entities'
+			locationX = 0;
+			locationY = 0;
 		}
 		
 		
