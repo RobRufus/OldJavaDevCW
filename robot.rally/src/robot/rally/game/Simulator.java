@@ -122,6 +122,8 @@ public class Simulator {
 			if (boardData.substring(i, i+1) == "/n" )		//resets grid location trackers when there is a new line
 			{	
 				x++;
+				instanceOfBoard.setBoardHeight(x); // When new line is added, set board height equal to number of lines
+				instanceOfBoard.setBoardLength(y); // Updates board length to number of characters before new line
 				y=0;
 			}
 			
@@ -179,7 +181,6 @@ public class Simulator {
 			}
 			 i++;		// moves on to the next char in the board file.
 		}
-		
 		
 		
 

@@ -28,8 +28,8 @@ public class Robot extends GridEntity {
 		return isAlive;
 	}
 	
-	public void setDead() { // Set robot as dead
-		isAlive = false;
+	public void setState(boolean state) { // Set robot as dead/alive
+		isAlive = state;
 	}
 	
 	public Direction checkHeading() // Gets the direction of the robot

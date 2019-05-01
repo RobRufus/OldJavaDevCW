@@ -1,6 +1,5 @@
 package robot.rally.model;
 
-import org.junit.Test;
 
 public abstract class GridEntity {
 

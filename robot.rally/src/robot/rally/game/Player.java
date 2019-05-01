@@ -10,15 +10,25 @@ public class Player {
 	int playerID;
 	
 	
-	public Player() 
+	public Player(int playerID, int x, int y) // Needs a player ID alongside coordinates to place the robot at the spanw position 
 	{
-		//Player class constructor
+		Robot robotControlling = new Robot(x, y);
+		this.playerID = playerID;
+		int flagTracker = 0;
 	}
 	
 	
 	public void instructRobot(Action instruction)
 	{
 		//class to allow selection of actions by user
+		robotControlling.performSpecifiedAction(instruction);
 	}
 	
+	public int getFlagTracker() {
+		return flagTracker;
+	}
+	
+	public void iterateFlagTracker() {
+		flagTracker++;
+	}
 }

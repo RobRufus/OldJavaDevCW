@@ -6,6 +6,8 @@ import java.util.ArrayList;
 public class Board {
 
 	private ArrayList[][] board;
+	private int boardLength; // To determine boardLength
+	private int boardHeight; // To determine boardHeight
 	
 	public Board()
 	{
@@ -37,7 +39,38 @@ public class Board {
 	//moves a grid entity to a specified place making sure to push robots as needed
 	}
 	
-
+	public void checkRobotLocation(Robot robot) {
+		// Will check if a robot remains in the bounds of the board, setting it to dead if not 
+		// Checks if robots X location is outside the height boundaries.
+		
+		if (robot.getLocationX() < 0 || robot.getLocationX() > boardHeight) {
+			robot.setState(false);
+		} else {
+			;
+		}
+		
+		// Checks if robot Y location is outside the length boundaries
+		
+		if (robot.getLocationY() < 0 || robot.getLocationY() > boardLength) {
+			robot.setState(false);
+		} else {
+			;
+		}
+	}
 	
+	public void setBoardLength(int length) {
+		boardLength = length;
+	}
 	
+	public int getBoardLength() {
+		return boardLength;
+	}
+	
+	public void setBoardHeight(int height) {
+		boardHeight = height;
+	}
+	
+	public int getBoardHeight() {
+		return boardHeight;
+	}
 }

@@ -8,9 +8,9 @@ public class Pit extends GridEntity  {
 		super(locationX, locationY); 
 	}
 	
-	public void activate()
+	public void activate(Robot robot) // Receives a robot, sets the Robot's state to dead
 	{
-		//override activate function in GridEntity
+		robot.setState(false);
 	}
 	
 	
