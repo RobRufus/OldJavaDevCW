@@ -130,16 +130,16 @@ public class Simulator {
 			switch (boardData.charAt(i))	//iterates through finding the appropriate thing to generate based on the board location
 			{
 			
-			case '1':  instanceOfBoard.placeEntity(x, y, new robot.rally.model.Flag(x,y,'1'));		
+			case '1':  instanceOfBoard.placeEntity(x, y, new robot.rally.model.Flag(x,y,1));		
 			y++;
             	break;
-			case '2':  instanceOfBoard.placeEntity(x, y, new robot.rally.model.Flag(x,y,'2'));		
+			case '2':  instanceOfBoard.placeEntity(x, y, new robot.rally.model.Flag(x,y,2));		
 			y++;
             	break;
-			case '3':  instanceOfBoard.placeEntity(x, y, new robot.rally.model.Flag(x,y,'3'));		
+			case '3':  instanceOfBoard.placeEntity(x, y, new robot.rally.model.Flag(x,y,3));		
 			y++;
             	break;
-			case '4':  instanceOfBoard.placeEntity(x, y, new robot.rally.model.Flag(x,y,'4'));		
+			case '4':  instanceOfBoard.placeEntity(x, y, new robot.rally.model.Flag(x,y,4));		
 			y++;
             	break;
 			case '+':  instanceOfBoard.placeEntity(x, y, new robot.rally.model.Cog(x,y,Rotation.CLOCKWISE));		

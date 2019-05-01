@@ -6,7 +6,8 @@ public class Flag extends GridEntity  {
 	
 	public Flag(int locationX, int locationY, int flagID)
 	{
-		super(locationX, locationY); 
+		super(locationX, locationY);
+		this.flagID = flagID;
 	}
 	
 	public void activate()
@@ -14,7 +15,10 @@ public class Flag extends GridEntity  {
 		//override activate function in GridEntity
 	}
 	
-	
+	public int getFlagID() {
+		return flagID;
+		
+	}
 	
 	public boolean nextFlag(int flagTracker)
 	{

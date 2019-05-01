@@ -14,7 +14,7 @@ public class Player {
 	{
 		Robot robotControlling = new Robot(x, y);
 		this.playerID = playerID;
-		int flagTracker = 0;
+		int flagTracker = 1;
 	}
 	
 	
@@ -30,5 +30,13 @@ public class Player {
 	
 	public void iterateFlagTracker() {
 		flagTracker++;
+	}
+	
+	public void checkFlag(int flagID) {
+		if (flagTracker == flagID) {
+			iterateFlagTracker();
+		} else {
+			;
+		}
 	}
 }
