@@ -15,10 +15,10 @@ public class Simulator {
 	//creates a board object at the start of the game.
 	public robot.rally.model.Board instanceOfBoard;
 	
-	public Simulator() {
-
+	public Simulator() 
+	{
 		//Simulator class constructor
-		instanceOfBoard = new robot.rally.model.Board();
+
 
 	}
 	
@@ -106,84 +106,98 @@ public class Simulator {
 	
 	public void generateBoard() 
 	{
-
+		int x=0,y=0;
 
 		//read board file
 		robot.rally.IO.Input inputString = new robot.rally.IO.Input();
 		String boardData = inputString.readBoardFile("conveyor-loops.brd");
 		
 		
+		for (int i = 0; i < boardData.length();)		//iterates through the file string, reseting the corresponding board location when appropriate.
+		{
+			
+			if (boardData.substring(i, i+1) == "/n" )		//resets grid location trackers when there is a new line
+			{					
+				x++;
+				y=0;
+			}
+			y++;
+			i++;
+		}
+		instanceOfBoard = new robot.rally.model.Board(x,y);		//instanciates board using grid size calculated from the string above
+		x=0; y=0;												// resets the x	y variables for the rest of the board generation process
+		
 
 		for (int i = 0; i < boardData.length();)		//iterates through the file string, reseting the corresponding board location when appropriate.
 		{
-			int x=0,y=0;
 			
-			
-			if (boardData.substring(i, i+1) == "/n" )		//resets grid location trackers when there is a new line
-			{	
+			if (boardData.substring(i, i+1) == "/n")		//resets grid location trackers when there is a new line
+			{					
 				x++;
-				instanceOfBoard.setBoardHeight(x); // When new line is added, set board height equal to number of lines
-				instanceOfBoard.setBoardLength(y); // Updates board length to number of characters before new line
 				y=0;
+				i++;
 			}
+			else 
+			{			
+				switch (boardData.charAt(i))	//iterates through finding the appropriate thing to generate based on the board location
+				{
 			
-			switch (boardData.charAt(i))	//iterates through finding the appropriate thing to generate based on the board location
-			{
-			
-			case '1':  instanceOfBoard.placeEntity(x, y, new robot.rally.model.Flag(x,y,1));		
-			y++;
-            	break;
-			case '2':  instanceOfBoard.placeEntity(x, y, new robot.rally.model.Flag(x,y,2));		
-			y++;
-            	break;
-			case '3':  instanceOfBoard.placeEntity(x, y, new robot.rally.model.Flag(x,y,3));		
-			y++;
-            	break;
-			case '4':  instanceOfBoard.placeEntity(x, y, new robot.rally.model.Flag(x,y,4));		
-			y++;
-            	break;
-			case '+':  instanceOfBoard.placeEntity(x, y, new robot.rally.model.Cog(x,y,Rotation.CLOCKWISE));		
-			y++;
-            	break;
-			case '-':  instanceOfBoard.placeEntity(x, y, new robot.rally.model.Cog(x,y,Rotation.COUNTERCLOCKWISE));		
-			y++;
-            	break;
-			case 'x':  instanceOfBoard.placeEntity(x, y, new robot.rally.model.Pit(x,y));		
-			y++;
-            	break;
-			case 'A':  instanceOfBoard.placeEntity(x, y, new robot.rally.model.SpawnPoint(x,y,"A"));		
-			y++;
-            	break;
-			case 'B':  instanceOfBoard.placeEntity(x, y, new robot.rally.model.SpawnPoint(x,y,"B"));		
-			y++;
-            	break;
-			case 'C':  instanceOfBoard.placeEntity(x, y, new robot.rally.model.SpawnPoint(x,y,"C"));		
-			y++;
-            	break;
-			case 'D':  instanceOfBoard.placeEntity(x, y, new robot.rally.model.SpawnPoint(x,y,"D"));		
-			y++;
-        		break;
-			case '<':  instanceOfBoard.placeEntity(x, y, new robot.rally.model.Conveyor(x,y,Direction.WEST));		
-			y++;
-        		break;
-			case '>':  instanceOfBoard.placeEntity(x, y, new robot.rally.model.Conveyor(x,y,Direction.EAST));			
-			y++;
-        		break;
-			case '^':  instanceOfBoard.placeEntity(x, y, new robot.rally.model.Conveyor(x,y,Direction.NORTH));			
-			y++;
-        		break;
-			case 'v':  instanceOfBoard.placeEntity(x, y, new robot.rally.model.Conveyor(x,y,Direction.SOUTH));			
-			y++;
-				break;
-			default :  instanceOfBoard.placeEntity(x, y, new robot.rally.model.EmptyTile(x,y));			
-			y++;
+				case '1':  instanceOfBoard.placeEntity(x, y, new robot.rally.model.Flag(x,y, 1));		
+				y++;
+					break;
+				case '2':  instanceOfBoard.placeEntity(x, y, new robot.rally.model.Flag(x,y, 2));		
+				y++;
+					break;
+				case '3':  instanceOfBoard.placeEntity(x, y, new robot.rally.model.Flag(x,y, 3));		
+				y++;
+            		break;
+				case '4':  instanceOfBoard.placeEntity(x, y, new robot.rally.model.Flag(x,y, 4));		
+				y++;
+            		break;
+				case '+':  instanceOfBoard.placeEntity(x, y, new robot.rally.model.Cog(x,y,Rotation.CLOCKWISE));		
+				y++;
+            		break;
+				case '-':  instanceOfBoard.placeEntity(x, y, new robot.rally.model.Cog(x,y,Rotation.COUNTERCLOCKWISE));		
+				y++;
+            		break;
+				case 'x':  instanceOfBoard.placeEntity(x, y, new robot.rally.model.Pit(x,y));		
+				y++;
+            		break;
+				case 'A':  instanceOfBoard.placeEntity(x, y, new robot.rally.model.SpawnPoint(x,y,"A"));		
+				y++;
+            		break;
+				case 'B':  instanceOfBoard.placeEntity(x, y, new robot.rally.model.SpawnPoint(x,y,"B"));		
+				y++;
+            		break;
+				case 'C':  instanceOfBoard.placeEntity(x, y, new robot.rally.model.SpawnPoint(x,y,"C"));		
+				y++;
+            		break;
+				case 'D':  instanceOfBoard.placeEntity(x, y, new robot.rally.model.SpawnPoint(x,y,"D"));		
+				y++;
+        			break;
+				case '<':  instanceOfBoard.placeEntity(x, y, new robot.rally.model.Conveyor(x,y,Direction.WEST));		
+				y++;
+        			break;
+				case '>':  instanceOfBoard.placeEntity(x, y, new robot.rally.model.Conveyor(x,y,Direction.EAST));			
+				y++;
+        			break;
+				case '^':  instanceOfBoard.placeEntity(x, y, new robot.rally.model.Conveyor(x,y,Direction.NORTH));			
+				y++;
+        			break;
+				case 'v':  instanceOfBoard.placeEntity(x, y, new robot.rally.model.Conveyor(x,y,Direction.SOUTH));			
+				y++;
+					break;
+				default :  instanceOfBoard.placeEntity(x, y, new robot.rally.model.EmptyTile(x,y));			
+				y++;
 
+				}
 			}
-			 i++;		// moves on to the next char in the board file.
+			i++;		// moves on to the next char in the board file.
+			
+			
+			
 		}
 		
-		
-
 	}
 	
 	
@@ -214,9 +228,15 @@ public class Simulator {
 	}
 	
 	
-	public void placePlayerSpawn() 
+	public void placePlayerSpawn(int x, int y) 
 	{
-		//adds a player spawn point using board functions
+		//adds a player spawn point using board functions			-----unsure but i think this would only be used for random seeded boards
+		
+		//call board add spawn for player (player code)
+		//instanceOfBoard.placeEntity(x, y, new robot.rally.model.SpawnPoint(x,y,"player1"));	
+		
+		
+		
 	}
 	
 	public void flagSuccessCheck() 

@@ -6,7 +6,7 @@ public class Flag extends GridEntity  {
 	
 	public Flag(int locationX, int locationY, int flagID)
 	{
-		super(locationX, locationY);
+		super(locationX, locationY); 
 		this.flagID = flagID;
 	}
 	

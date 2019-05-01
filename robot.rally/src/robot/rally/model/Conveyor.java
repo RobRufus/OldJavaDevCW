@@ -15,6 +15,13 @@ public class Conveyor extends GridEntity  {
 	public void activate()
 	{
 		//override activate function in GridEntity
+		
+		
+		
+		//
+		
+		
+		
 	}
 	
 	

@@ -6,13 +6,15 @@ import java.util.ArrayList;
 public class Board {
 
 	private ArrayList[][] board;
-	private int boardLength; // To determine boardLength
-	private int boardHeight; // To determine boardHeight
+	private int widthX;
+	private int heightY;
 	
-	public Board()
+	public Board(int boardX, int boardY)
 	{
 		//private ArrayList[][] gridArray;
-		ArrayList[][] board = new ArrayList[10][];				//---------im pretty sure this needs to be fixed at some point i dont understand it
+		widthX = boardX;
+		heightY = boardY;
+		ArrayList[][] board = new ArrayList[boardX][boardY];
 	}
 	
 	
@@ -24,13 +26,68 @@ public class Board {
 	
 	public void placeEntity(int x, int y, GridEntity putThis)
 	{
-		//puts a specified new entity at a specified location
+		
+		//checks to see if there's anything in that space
+		if( getLocation(x,y).size() > 0 )
+		{
+			//puts a specified new entity at a specified location
+			board[x][y].add(1, putThis);
+		} else
+		{
+			//puts a specified new entity at a specified location
+			board[x][y].add(0, putThis);
+		}
+
 	}
 	
 	
-	public int getAdjacent(int location)
+	public Object[] getAdjacent(int x, int y)
 	{
-		return 1;	//finds the adjacent locations from a position so the spawn can be set 
+		//finds the adjacent locations from a position so the spawn can be set 
+		Object[] returnList = new Object[5];
+		Robot robrt = new Robot(x, y);	//robot object to check the board positions against
+		
+
+		returnList[0] = board[x][y].get(0);
+
+		
+		if (y > 0)
+		{
+			returnList[1] = board[x][y-1].get(0);
+		}else
+		{
+			returnList[1] = null;
+		}
+		
+		if(x+1 < widthX)
+		{
+		returnList[2] = board[x+1][y].get(0);
+		}
+		else
+		{
+			returnList[2] = null;
+		}
+		
+		if(y+1 < heightY)
+		{
+			returnList[3] = board[x][y+1].get(0);
+		}
+		else
+		{
+			returnList[3] = null;
+		}
+
+		if(x-1 < 0)
+		{
+			returnList[4] = board[x-1][y].get(0);
+		}
+		else
+		{
+			returnList[4] = null;
+		}
+		
+		
+		return returnList;
 	}
 	
 	
@@ -39,11 +96,13 @@ public class Board {
 	//moves a grid entity to a specified place making sure to push robots as needed
 	}
 	
+	
+	
 	public void checkRobotLocation(Robot robot) {
 		// Will check if a robot remains in the bounds of the board, setting it to dead if not 
 		// Checks if robots X location is outside the height boundaries.
 		
-		if (robot.getLocationX() < 0 || robot.getLocationX() > boardHeight) {
+		if (robot.getLocationX() < 0 || robot.getLocationX() > widthX) {
 			robot.setState(false);
 		} else {
 			;
@@ -51,26 +110,24 @@ public class Board {
 		
 		// Checks if robot Y location is outside the length boundaries
 		
-		if (robot.getLocationY() < 0 || robot.getLocationY() > boardLength) {
+		if (robot.getLocationY() < 0 || robot.getLocationY() > heightY) {
 			robot.setState(false);
 		} else {
 			;
 		}
 	}
 	
-	public void setBoardLength(int length) {
-		boardLength = length;
+	
+	
+	
+	
+
+	public int getBoardHeight() {
+		return heightY;
 	}
 	
 	public int getBoardLength() {
-		return boardLength;
+		return widthX;
 	}
 	
-	public void setBoardHeight(int height) {
-		boardHeight = height;
-	}
-	
-	public int getBoardHeight() {
-		return boardHeight;
-	}
 }
