@@ -26,6 +26,8 @@ public class Launcher extends Application {
 	Simulator simulator;
     private Stage primaryStage;
     private BorderPane rootLayout;
+    Scene launcherScene, boardScene;
+    
     
     @Override
     public void start(Stage primaryStage) {
@@ -48,9 +50,12 @@ public void initRootLayout() {
             rootLayout = (BorderPane) loader.load();
             
             // Show the scene containing the root layout.
-            Scene scene = new Scene(rootLayout);
-            primaryStage.setScene(scene);
+            launcherScene = new Scene(rootLayout);
+            primaryStage.setScene(launcherScene);
             primaryStage.show();
+            
+            //board setup
+            //boardScene = new Scene(rootLayout);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -72,18 +77,10 @@ public void showLauncher() {
 }
 
 public void showBoard() {
-    try {
-        // Load board screen.
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(Launcher.class.getResource("../view/BoardView.fxml"));
-        VBox board = (VBox) loader.load();
-        
-        // Set launcher into the centre of root layout.
-        rootLayout.setCenter(board);
-    } catch (IOException e) {
-        e.printStackTrace();
-    }
+	
+	
 }
+
 
 
 public Stage getPrimaryStage() {
@@ -98,7 +95,7 @@ public static void main(String[] args){
 	}
 	
 
-public void showLauncherButtons() {
+/*public void showLauncherButtons() {
     try {
         
         FXMLLoader loader = new FXMLLoader();
@@ -115,7 +112,7 @@ public void showLauncherButtons() {
     } catch (IOException e) {
         e.printStackTrace();
     }
-}
+}*/
 
 //	@Override
 //	public void start(Stage primaryStage) throws Exception{

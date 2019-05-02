@@ -1,9 +1,16 @@
 package robot.rally.view;
 
 import java.io.File;
+import java.io.IOException;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.stage.FileChooser;
+import javafx.stage.Stage;
 import robot.rally.game.*;
 
 public class LauncherController {
@@ -20,9 +27,15 @@ public class LauncherController {
 			System.out.println("File selection cancelled.");
 		}
 	}
-	@FXML public void donePressed() {
+	@FXML public void donePressed(ActionEvent event) throws IOException{
+		Parent boardViewParent = FXMLLoader.load(getClass().getResource("../view/Board.fxml"));
+		Scene boardView = new Scene(boardViewParent);
 		
-		launcher.showBoard();
+		//gets stage info
+		Stage primaryStage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+		
+		primaryStage.setScene(boardView);
+		primaryStage.show();
 	}
 	
 	
