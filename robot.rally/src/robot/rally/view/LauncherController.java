@@ -14,7 +14,7 @@ public class LauncherController {
 		 
 		if (selectedFile != null) {
 		 
-		    System.out.println("File selected: " + selectedFile.getName());
+		    System.out.println("File selected: " + selectedFile.getPath());
 		}
 		else {
 			System.out.println("File selection cancelled.");
