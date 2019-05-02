@@ -14,7 +14,7 @@ public abstract class GridEntity {
 		}
 		
 		
-		public abstract void activate(Board currentBoard,int locationX, int locationY, Board updatedBoard);
+		public abstract void activate(Board currentBoard,int locationX, int locationY, Board updatedBoard, Robot robot);
 		
 		
 		public int getLocationX() { // Gets X location

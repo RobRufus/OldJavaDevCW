@@ -16,7 +16,7 @@ public class Player {
 	{
 		Robot robotControlling = new Robot(x, y);
 		this.playerID = playerID;
-		int flagTracker = 1;
+		flagTracker = 1;
 		spawnX = x;
 		spawnY = y;
 	}

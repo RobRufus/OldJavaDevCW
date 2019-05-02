@@ -3,6 +3,7 @@ package robot.rally.model;
 public class Flag extends GridEntity  {
 
 	int flagID;
+	int flagNum;
 	
 	public Flag(int locationX, int locationY, int flagID)
 	{
@@ -10,9 +11,10 @@ public class Flag extends GridEntity  {
 		this.flagID = flagID;
 	}
 	
-	public void activate(Board currentBoard, int locationX, int locationY, Board updatedBoard)
+	public void activate(Board currentBoard, int locationX, int locationY, Board updatedBoard, Robot robot)
 	{
 		//override activate function in GridEntity
+		
 	}
 	
 	public int getFlagID() {
@@ -22,6 +24,7 @@ public class Flag extends GridEntity  {
 	
 	public boolean nextFlag(int flagTracker)
 	{
+		
 		return true;	/*sets which flag is the next needed 
 						to be collected when a flag is collected*/
 	}

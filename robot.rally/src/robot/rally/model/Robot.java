@@ -18,7 +18,7 @@ public class Robot extends GridEntity {
 		actionCount = 5; // Default amount of possible turns
 	}
 	
-	public void activate(Board currentBoard, int locationX, int locationY, Board updatedBoard)
+	public void activate(Board currentBoard, int locationX, int locationY, Board updatedBoard, Robot robot)
 	{
 		//override activate function in GridEntity
 	}

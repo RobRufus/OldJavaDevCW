@@ -11,7 +11,7 @@ public class SpawnPoint extends GridEntity  {
 	}
 	
 	
-	public void activate(Board currentBoard, int locationX, int locationY, Board updatedBoard)
+	public void activate(Board currentBoard, int locationX, int locationY, Board updatedBoard, Robot robot)
 	{
 		//override activate function in GridEntity
 	}

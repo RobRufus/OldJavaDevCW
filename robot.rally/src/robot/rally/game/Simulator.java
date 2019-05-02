@@ -11,16 +11,18 @@ public class Simulator {
 
 	//private ArrayList[][] board;
 	private int numOfPlayers;
-
+	private Robot robot;
+	private int numOfFlags;
 	//creates a board object at the start of the game.
 	public robot.rally.model.Board instanceOfBoard;
 	//creates an array of all the players at the start of the game.
 	public robot.rally.game.Player[] playerArray;
 
-	public Simulator(int playerNumber)
+	public Simulator(int playerNumber, int flagTotal)
 	{
 		//Simulator class constructor
 		numOfPlayers = playerNumber;
+		numOfFlags =  flagTotal;
 
 	}
 
@@ -219,7 +221,7 @@ public class Simulator {
 			for(int y=0; y<instanceOfBoard.getBoardHeight(); y++)
 			{
 				GridEntity entity = instanceOfBoard.getLocation(x, y).get(0);
-				entity.activate(instanceOfBoard, x, y, instanceOfBoard);
+				entity.activate(instanceOfBoard, x, y, instanceOfBoard, robot);
 			}
 		}
 
