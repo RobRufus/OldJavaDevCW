@@ -23,6 +23,10 @@ public class Output {
 		System.out.print("The Winner is player" + playerID);
 	}
 	
-
+	public void printBoard(robot.rally.model.Board prntme) //this will almost definatly not work in its current state haha ;-;
+	{
+		//prints out the board
+		System.out.print(prntme);
+	}
 	
 }

@@ -18,10 +18,11 @@ public class Board {
 	}
 	
 	
-	public ArrayList<Integer> getLocation(int locationX, int locationY)
-	{
-		return new ArrayList<Integer>();	//get the entities at a specified location
-	}
+	public ArrayList<GridEntity> getLocation(int locationX, int locationY)
+    {
+        ArrayList<GridEntity> returnList = board[locationX][locationY];
+        return returnList;    //get the entities at a specified location
+    }
 	
 	
 	public void placeEntity(int x, int y, GridEntity putThis)
