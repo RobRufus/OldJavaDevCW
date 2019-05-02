@@ -14,10 +14,7 @@ public abstract class GridEntity {
 		}
 		
 		
-		public void activate(Board currentBoard,int locationX, int locationY, Board updatedBoard)
-		{
-		//activate class to be called by the simulator when going through the board
-		}
+		public abstract void activate(Board currentBoard,int locationX, int locationY, Board updatedBoard);
 		
 		
 		public int getLocationX() { // Gets X location

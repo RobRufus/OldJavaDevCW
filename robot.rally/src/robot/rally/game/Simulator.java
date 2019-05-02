@@ -9,16 +9,18 @@ import robot.rally.model.*;
 
 public class Simulator {
 
-	private ArrayList[][] board;
-	private Player[] playerArray;
+	//private ArrayList[][] board;
+	private int numOfPlayers;
 	
 	//creates a board object at the start of the game.
 	public robot.rally.model.Board instanceOfBoard;
+	//creates an array of all the players at the start of the game.
+	public robot.rally.game.Player[] playerArray;
 	
-	public Simulator() 
+	public Simulator(int playerNumber) 
 	{
 		//Simulator class constructor
-
+		numOfPlayers = playerNumber;
 
 	}
 	
@@ -110,6 +112,7 @@ public class Simulator {
 
 		//read board file
 		//robot.rally.IO.Input inputString = new robot.rally.IO.Input();
+		robot.rally.IO.Output outputBoard = new robot.rally.IO.Output();
 		String boardData = board;
 		
 		
@@ -163,16 +166,20 @@ public class Simulator {
 				case 'x':  instanceOfBoard.placeEntity(x, y, new robot.rally.model.Pit(x,y));		
 				y++;
             		break;
-				case 'A':  instanceOfBoard.placeEntity(x, y, new robot.rally.model.SpawnPoint(x,y,"A"));		
+				case 'A':  instanceOfBoard.placeEntity(x, y, new robot.rally.model.SpawnPoint(x,y,"A"));
+				createPlayer(1, x, y);
 				y++;
             		break;
-				case 'B':  instanceOfBoard.placeEntity(x, y, new robot.rally.model.SpawnPoint(x,y,"B"));		
+				case 'B':  instanceOfBoard.placeEntity(x, y, new robot.rally.model.SpawnPoint(x,y,"B"));	
+				createPlayer(2, x, y);
 				y++;
             		break;
-				case 'C':  instanceOfBoard.placeEntity(x, y, new robot.rally.model.SpawnPoint(x,y,"C"));		
+				case 'C':  instanceOfBoard.placeEntity(x, y, new robot.rally.model.SpawnPoint(x,y,"C"));
+				createPlayer(3, x, y);
 				y++;
             		break;
-				case 'D':  instanceOfBoard.placeEntity(x, y, new robot.rally.model.SpawnPoint(x,y,"D"));		
+				case 'D':  instanceOfBoard.placeEntity(x, y, new robot.rally.model.SpawnPoint(x,y,"D"));
+				createPlayer(4, x, y);
 				y++;
         			break;
 				case '<':  instanceOfBoard.placeEntity(x, y, new robot.rally.model.Conveyor(x,y,Direction.WEST));		
@@ -198,33 +205,32 @@ public class Simulator {
 			
 		}
 		
+		
+			outputBoard.printBoard(instanceOfBoard); 
 	}
 	
 	
 	public void stepThroughBoard() 
 	{
 		//activates board entities one by one after the player movement			//----------------------------needs working on
-
-		/*
 		
-		for(int i=0; i<instanceOfBoard.length; i++) 
+		for(int x=0; x<instanceOfBoard.getBoardLength(); x++) 
 		{
-			for(int j=0; j<instanceOfBoard[i].length; j++) 
+			for(int y=0; y<instanceOfBoard.getBoardHeight(); y++) 
 			{
-				instanceOfBoard.getLocation(i, j);		
-				
-				
-				
+				GridEntity entity = instanceOfBoard.getLocation(x, y).get(0);
+				entity.activate(instanceOfBoard, x, y, instanceOfBoard); 
 			}
 		}
-	
-		*/
+
 	}
 	
 	
-	public void createPlayerArray() 
+	public void createPlayer(int playerNum, int playerX, int playerY) 
 	{
 		// creates an array of a number of players depending on game settings
+
+			playerArray[playerNum-1]  = new Player(playerNum, playerX, playerY);
 	}
 	
 	
