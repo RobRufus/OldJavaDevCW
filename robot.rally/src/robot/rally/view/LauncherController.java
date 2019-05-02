@@ -22,7 +22,7 @@ public class LauncherController {
 	}
 	@FXML public void donePressed() {
 		
-		showBoard();
+		launcher.showBoard();
 	}
 	
 	
