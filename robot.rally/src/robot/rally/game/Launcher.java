@@ -8,7 +8,6 @@ import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import robot.rally.IO.Input;
-import robot.rally.view.LauncherController;
 import javafx.scene.layout.AnchorPane;
 
 
@@ -43,7 +42,7 @@ public void initRootLayout() {
         try {
             // Load root layout from fxml file.
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(Launcher.class.getResource("RootLayout.fxml"));
+            loader.setLocation(Launcher.class.getResource("../view/RootLayout.fxml"));
             rootLayout = (BorderPane) loader.load();
             
             // Show the scene containing the root layout.
@@ -60,7 +59,7 @@ public void showLauncher() {
     try {
         // Load launcher screen.
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(Launcher.class.getResource("LauncherView.fxml"));
+        loader.setLocation(Launcher.class.getResource("../view/LauncherView.fxml"));
         AnchorPane launcher = (AnchorPane) loader.load();
         
         // Set launcher into the centre of root layout.
