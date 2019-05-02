@@ -8,6 +8,7 @@ import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import robot.rally.IO.Input;
+import robot.rally.view.LauncherController;
 import javafx.scene.layout.AnchorPane;
 
 
@@ -80,6 +81,26 @@ public static void main(String[] args){
 		launch(args);	
 	}
 	
+
+public void showLauncherButtons() {
+    try {
+        
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(Launcher.class.getResource("../view/LauncherView.fxml"));
+        AnchorPane overview = (AnchorPane) loader.load();
+        
+        // Set overview into the centre of root layout.
+        rootLayout.setCenter(overview);
+
+        // Give the controller access to the main app.
+        LauncherController controller = loader.getController();
+        controller.setMainApp(this);
+
+    } catch (IOException e) {
+        e.printStackTrace();
+    }
+}
+
 //	@Override
 //	public void start(Stage primaryStage) throws Exception{
 //		
