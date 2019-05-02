@@ -104,13 +104,13 @@ public class Simulator {
 	*/
 	
 	
-	public void generateBoard() 
+	public void generateBoard(String board) 
 	{
 		int x=0,y=0;
 
 		//read board file
-		robot.rally.IO.Input inputString = new robot.rally.IO.Input();
-		String boardData = inputString.readBoardFile("conveyor-loops.brd");
+		//robot.rally.IO.Input inputString = new robot.rally.IO.Input();
+		String boardData = board;
 		
 		
 		for (int i = 0; i < boardData.length();)		//iterates through the file string, reseting the corresponding board location when appropriate.

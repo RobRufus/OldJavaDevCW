@@ -5,6 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import robot.rally.IO.Input;
 import robot.rally.view.LauncherController;
 
 public class Launcher extends Application {
@@ -12,13 +13,14 @@ public class Launcher extends Application {
 	int numOfPlayers;
 	int gameType;
 	String playerNames[];
-	String actionFileName;
-	String boardFileName;
+	String actionFilePath;
+	String boardFilePath;
+	Input input;
+	Simulator simulator;
 	
 	public static void main(String[] args){
 		System.out.println("Hello World");
-		launch(args);
-		
+		launch(args);	
 	}
 	
 	@Override
@@ -36,9 +38,15 @@ public class Launcher extends Application {
 	}
 	
 	
-	public Launcher() 
+	public Launcher(String brdFilePath, String actFilePath) 
 	{
 		//constructor for launcher class
+		boardFilePath = brdFilePath;
+		actionFilePath = actFilePath;
+		Input input = new Input();
+		Simulator simulator = new Simulator();
+		simulator.generateBoard(input.readFile(boardFilePath));
+		input.readFile(actionFilePath);		
 	}
 	
 	
