@@ -46,7 +46,7 @@ public class Board {
 	{
 		//finds the adjacent locations from a position so the spawn can be set 
 		Object[] returnList = new Object[5];
-		Robot robrt = new Robot(x, y);	//robot object to check the board positions against
+		Robot robot = new Robot(x, y);	//robot object to check the board positions against
 		
 
 		returnList[0] = board[x][y].get(0);

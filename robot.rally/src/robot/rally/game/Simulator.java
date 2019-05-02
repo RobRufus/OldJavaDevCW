@@ -12,7 +12,7 @@ public class Simulator {
 	//private ArrayList[][] board;
 	private int numOfPlayers;
 	private Robot robot;
-	private int numOfFlags;
+	//private int numOfFlags;
 	//creates a board object at the start of the game.
 	public robot.rally.model.Board instanceOfBoard;
 	//creates an array of all the players at the start of the game.
@@ -22,7 +22,7 @@ public class Simulator {
 	{
 		//Simulator class constructor
 		numOfPlayers = playerNumber;
-		numOfFlags =  flagTotal;
+		//numOfFlags =  flagTotal;
 
 	}
 

@@ -3,7 +3,7 @@ package robot.rally.model;
 public class Flag extends GridEntity  {
 
 	int flagID;
-	int flagNum;
+	
 	
 	public Flag(int locationX, int locationY, int flagID)
 	{
@@ -17,9 +17,10 @@ public class Flag extends GridEntity  {
 		
 	}
 	
-	public int getFlagID() {
-		return flagID;
+	public int getFlagID() 
+	{
 		
+		return flagID;
 	}
 	
 	public boolean nextFlag(int flagTracker)
