@@ -22,7 +22,7 @@ public class LauncherController {
 	}
 	@FXML public void donePressed() {
 		
-		System.out.println("buttz");
+		showBoard();
 	}
 	
 	
@@ -42,7 +42,7 @@ public class LauncherController {
 	/**
      * Is called by the main application to give a reference back to itself.
      * 
-     * @param mainApp
+     * 
      */
     public void setMainApp(Launcher launcher) {
         this.launcher = launcher;

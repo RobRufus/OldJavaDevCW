@@ -6,6 +6,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import robot.rally.IO.Input;
 import robot.rally.view.LauncherController;
@@ -69,6 +70,21 @@ public void showLauncher() {
         e.printStackTrace();
     }
 }
+
+public void showBoard() {
+    try {
+        // Load board screen.
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(Launcher.class.getResource("../view/BoardView.fxml"));
+        VBox board = (VBox) loader.load();
+        
+        // Set launcher into the centre of root layout.
+        rootLayout.setCenter(board);
+    } catch (IOException e) {
+        e.printStackTrace();
+    }
+}
+
 
 public Stage getPrimaryStage() {
 	return primaryStage;
