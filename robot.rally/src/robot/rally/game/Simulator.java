@@ -1,5 +1,6 @@
 package robot.rally.game;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 import org.junit.Test;
@@ -253,10 +254,13 @@ public class Simulator {
 		for(int y=0; y < playerArray.length ; y++)
 		{
 			if (playerArray[y].getFlagTracker() == 4)
-			{
-				outputBoard.OutToConsole(playerArray[y]);
-				outputBoard.printBoard(instanceOfBoard);
-				outputBoard.writeFile(playerArray[y]);
+			{	try {
+					outputBoard.OutToConsole(playerArray[y]);
+					outputBoard.printBoard(instanceOfBoard);
+					outputBoard.writeFile(playerArray[y]);
+				}
+				catch (IOException e) {
+					e.printStackTrace();
 			}
 		}
 	}
