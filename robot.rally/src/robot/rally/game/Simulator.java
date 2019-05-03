@@ -169,19 +169,19 @@ public class Simulator {
 				case 'x':  instanceOfBoard.placeEntity(x, y, new robot.rally.model.Pit(x,y));
 				y++;
             		break;
-				case 'A':  instanceOfBoard.placeEntity(x, y, new robot.rally.model.SpawnPoint(x,y,"A"));
+				case 'A':  instanceOfBoard.placeEntity(x, y, new robot.rally.model.SpawnPoint(x,y,1));
 				createPlayer(1, x, y);
 				y++;
             		break;
-				case 'B':  instanceOfBoard.placeEntity(x, y, new robot.rally.model.SpawnPoint(x,y,"B"));
+				case 'B':  instanceOfBoard.placeEntity(x, y, new robot.rally.model.SpawnPoint(x,y,2));
 				createPlayer(2, x, y);
 				y++;
             		break;
-				case 'C':  instanceOfBoard.placeEntity(x, y, new robot.rally.model.SpawnPoint(x,y,"C"));
+				case 'C':  instanceOfBoard.placeEntity(x, y, new robot.rally.model.SpawnPoint(x,y,3));
 				createPlayer(3, x, y);
 				y++;
             		break;
-				case 'D':  instanceOfBoard.placeEntity(x, y, new robot.rally.model.SpawnPoint(x,y,"D"));
+				case 'D':  instanceOfBoard.placeEntity(x, y, new robot.rally.model.SpawnPoint(x,y,4));
 				createPlayer(4, x, y);
 				y++;
         			break;
@@ -203,12 +203,7 @@ public class Simulator {
 				}
 			}
 			i++;		// moves on to the next char in the board file.
-
-
-
 		}
-
-
 			outputBoard.printBoard(instanceOfBoard);
 	}
 
@@ -222,7 +217,7 @@ public class Simulator {
 			for(int y=0; y<instanceOfBoard.getBoardHeight(); y++)
 			{
 				GridEntity entity = instanceOfBoard.getLocation(x, y).get(0);
-				entity.activate(instanceOfBoard, x, y, instanceOfBoard, robot);
+				entity.activate(instanceOfBoard, x, y, instanceOfBoard, robot);		//do the robot properly
 			}
 		}
 
@@ -236,7 +231,7 @@ public class Simulator {
 			playerArray[playerNum-1]  = new Player(playerNum, playerX, playerY);
 	}
 
-
+	/*
 	public void placePlayerSpawn(int x, int y)
 	{
 		//adds a player spawn point using board functions			-----unsure but i think this would only be used for random seeded boards
@@ -245,6 +240,7 @@ public class Simulator {
 		//instanceOfBoard.placeEntity(x, y, new robot.rally.model.SpawnPoint(x,y,"player1"));
 
 	}
+	*/
 
 	public void flagSuccessCheck()
 	{
@@ -261,8 +257,6 @@ public class Simulator {
 				outputBoard.writeFile();
 			}
 		}
-
-
 	}
 
 	public void deadBotCheck()
