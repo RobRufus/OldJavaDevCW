@@ -11,10 +11,20 @@ public class Output {
 	}
 
 
-	public void writeFile()
+	public void writeFile(robot.rally.game.Player player) throws IOException  //write the winning player to file on victory
 	{
-		//writes the player name to file upon victory
+		FileWriter writeFile = new FileWriter("Winners.txt");
+
+		for (int i = 0; i < 10; i++)
+		{
+			writeFile.write("The Winner is player" + player.getPlayerID() );
+		}
+		writeFile.close();
+
 	}
+
+
+
 
 
 	public void OutToConsole(robot.rally.game.Player player)
@@ -22,6 +32,9 @@ public class Output {
 		//prints out to console on victory
 		System.out.print("The Winner is player" + player.getPlayerID());
 	}
+
+
+
 
 	public void printBoard(robot.rally.model.Board prntme) //this will almost definatly not work in its current state haha ;-;
 	{

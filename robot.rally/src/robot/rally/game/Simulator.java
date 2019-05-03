@@ -11,6 +11,7 @@ public class Simulator {
 
 	//private ArrayList[][] board;
 	private int numOfPlayers;
+	private String[] playerName;
 	private Robot robot;
 	//private int numOfFlags;
 	//creates a board object at the start of the game.
@@ -19,11 +20,12 @@ public class Simulator {
 	//creates an array of all the players at the start of the game.
 	public robot.rally.game.Player[] playerArray;
 
-	public Simulator(int playerNumber, int flagTotal)
+	public Simulator(int playerNumber, int flagTotal, String[] pName)
 	{
 		//Simulator class constructor
 		numOfPlayers = playerNumber;
 		outputBoard = new robot.rally.IO.Output();
+		playerName = pName;
 		//numOfFlags =  flagTotal;
 
 	}
@@ -228,7 +230,7 @@ public class Simulator {
 	{
 		// creates an array of a number of players depending on game settings
 
-			playerArray[playerNum-1]  = new Player(playerNum, playerX, playerY);
+			playerArray[playerNum-1]  = new Player(playerNum, playerX, playerY, playerName[playerNum]);
 	}
 
 	/*

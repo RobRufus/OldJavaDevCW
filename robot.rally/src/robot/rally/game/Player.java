@@ -10,15 +10,17 @@ public class Player {
 	int playerID;
 	private int spawnX;
 	private int spawnY;
+	String playerName;
 
 
-	public Player(int playerID, int x, int y) // Needs a player ID alongside coordinates to place the robot at the spanw position
+	public Player(int playerID, int x, int y, String thisPlayerName) // Needs a player ID alongside coordinates to place the robot at the spanw position
 	{
 		Robot robotControlling = new Robot(x, y);
 		this.playerID = playerID;
 		flagTracker = 1;
 		spawnX = x;
 		spawnY = y;
+		playerName = thisPlayerName;
 	}
 
 
@@ -55,4 +57,10 @@ public class Player {
 	public int getPlayerID() {
 		return playerID;
 	}
+
+	public void setPlayerName(String pName)
+	{
+		playerName = pName;
+	}
+
 }
