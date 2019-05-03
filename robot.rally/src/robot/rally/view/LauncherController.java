@@ -11,6 +11,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.layout.Pane;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import robot.rally.game.*;
@@ -53,8 +54,12 @@ public class LauncherController {
 		//gets stage info
 		Stage primaryStage = (Stage) ((Node)event.getSource()).getScene().getWindow();
 		
+		
+		
 		primaryStage.setScene(boardView);
 		primaryStage.show();
+		
+		
 	}
 	@FXML private Label boardFileLabel;
 	@FXML private Label actionFileLabel;

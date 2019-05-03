@@ -1,6 +1,13 @@
 package robot.rally.view;
 
+import java.io.IOException;
+
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 import robot.rally.game.Launcher;
 
 public class BoardController {
@@ -13,8 +20,15 @@ public class BoardController {
 	}
 	public BoardController() {}
 	
+
+	@FXML public VBox root;
+	
+	
 	@FXML
-    private void initialize() {}
+    private void initialize() {
+		
+		
+	}
 	
 	
     
