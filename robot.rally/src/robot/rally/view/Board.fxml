@@ -34,15 +34,5 @@
           <RowConstraints prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
       </GridPane>
-      <HBox alignment="CENTER" prefWidth="200.0">
-         <children>
-            <Button mnemonicParsing="false" onAction="#ForwardsPressed" text="Forwards" />
-            <Button mnemonicParsing="false" text="Button" />
-            <Button mnemonicParsing="false" text="Button" />
-            <Button mnemonicParsing="false" text="Button" />
-            <Button mnemonicParsing="false" text="Button" />
-            <Button mnemonicParsing="false" text="Button" />
-         </children>
-      </HBox>
    </children>
 </VBox>

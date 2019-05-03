@@ -28,10 +28,7 @@ public class BoardController {
 	private ImageView imageView;
 	private FileInputStream inputstream;
 	
-	@FXML public void ForwardsPressed() {
-		
-		System.out.println("buttz");
-		}
+	
 	public BoardController() {}
 	
 
@@ -41,7 +38,18 @@ public class BoardController {
 	
 	
 	@FXML 
-	private void initialize() {
+	private void initialize() throws Exception {
+		
+		
+		Board tempboard = new Board(2,2);
+		
+		BoardController boardController = new BoardController();
+		
+		robot.rally.IO.Input inputString = new robot.rally.IO.Input();
+		
+		String boardData = inputString.readFile("C:/cscw/coursework/boards/test2x2.brd");
+		
+		boardController.displayBoard(tempboard, boardData);
 		
 		
 	}
@@ -238,13 +246,7 @@ public class BoardController {
 			}
 		}
 		
-		//Image image = new Image("C:/cscw/coursework/GameArt/A.png");
-		//grid.getChildren().add(imageView);
-		//System.out.println("buttz");
-		//Stage primaryStage = Launcher.getPrimaryStage();
-		//Scene scene = new Scene(grid);
-	   // primaryStage.setScene(scene);
-	   // primaryStage.show();
+		
 	}
     
 }
