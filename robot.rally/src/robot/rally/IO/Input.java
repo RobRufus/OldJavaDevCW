@@ -84,20 +84,31 @@ public class Input {
 		//replace the formatting
 		actionText = actionText.replace("format 1", "");
 		//Replace the line breaks with space
-		String line = Files.readAllLines(Paths.get(fileName)).get(1);
-		System.out.println(line);
-		actionText = actionText.replace("\n", " ");
+		
+		
 		//Separate the string on spaces and enter them into a string array
 		String[] parts = actionText.split(" ");
+		
 		//Loop through the string array and remove any extra spaces either side
 		for(int i = 0; i < parts.length; i++)
 		{
+			//System.out.print(parts[i] + " ");
+			actionText = parts[i].replace("\n", " ");
+			//for(int a = 0; i <  )
+			System.out.print(parts[i] + " ");
+
 			String trimmed = parts[i].trim();
 			//Replace the entries with the trimmed ones
 			parts[i] = trimmed;
 			//System.out.println(parts[i]);
 		}
 		return parts;
+		
+		
+		
+		
+		
+		
 	}
 
 

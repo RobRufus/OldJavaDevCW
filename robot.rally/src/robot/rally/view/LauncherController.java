@@ -14,6 +14,7 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import robot.rally.IO.Input;
 import robot.rally.game.*;
 
 public class LauncherController {
@@ -21,7 +22,7 @@ public class LauncherController {
 	private File boardFile;
 	private File actionFile;
 	
-	@FXML public void chooseFilePressed() {
+	@FXML public void chooseFilePressed() throws IOException {
 		FileChooser fileChooser = new FileChooser();
 		File selectedFile = fileChooser.showOpenDialog(null);
 		String fileName = selectedFile.getName();
@@ -39,6 +40,10 @@ public class LauncherController {
 			else if(fileName.substring(fileName.length() - 4).equals(".prg")) {
 				actionFile = selectedFile;
 				actionFileLabel.setText("Action file set to:" + fileName);
+				Input input = new Input();
+				String actionFileString = actionFile.toString();
+				input.readFile(actionFileString);
+				
 			}
 			else {
 				System.out.println("File invalid");
