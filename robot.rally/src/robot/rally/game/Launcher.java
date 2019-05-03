@@ -12,7 +12,14 @@ import robot.rally.IO.Input;
 import robot.rally.view.LauncherController;
 import javafx.scene.layout.AnchorPane;
 
-
+/**
+ * This is the class that parses the {@link Board} file and {@link Action} file to the {@link Simulator}.
+ * It also initialises the GUI used by the game.
+ * Does not use a Contructor because it is GUI based.
+ * 
+ * @author Team18.
+ *
+ */
 
 
 public class Launcher extends Application {
@@ -30,6 +37,13 @@ public class Launcher extends Application {
     
     
     @Override
+    
+    /**
+     * Initialises the given Stage to hold the Scene displaying the {@link Board} itself.
+     * 
+     * @param primaryStage
+     */
+    
     public void start(Stage primaryStage) {
         this.primaryStage = primaryStage;
         this.primaryStage.setTitle("RoboRally launcher");
@@ -40,8 +54,9 @@ public class Launcher extends Application {
     }
     
     /**
-     * Initializes the root layout.
+     * This method load's the root layout from the RootLayout.fxml file and establishes the launcher scene. 
      */
+    
 public void initRootLayout() {
         try {
             // Load root layout from fxml file.
