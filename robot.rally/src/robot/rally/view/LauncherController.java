@@ -28,7 +28,8 @@ public class LauncherController {
 		
 		
 		
-		if (selectedFile != null) {
+		if (selectedFile != null) 
+		{
 			System.out.println("File selected: " + selectedFile.getPath());
 			if(fileName.substring(fileName.length()- 4).equals(".brd"))
 		    {
@@ -43,7 +44,8 @@ public class LauncherController {
 				System.out.println("File invalid");
 			}
 		}
-		else {
+		else
+		{
 			System.out.println("File selection cancelled.");
 		}
 	}

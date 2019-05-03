@@ -21,7 +21,7 @@ public class BoardController {
 	public BoardController() {}
 	
 
-	@FXML public VBox root;
+
 	
 	
 	@FXML
