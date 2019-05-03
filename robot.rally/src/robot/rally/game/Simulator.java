@@ -114,7 +114,7 @@ public class Simulator {
 	*/
 
 
-	public void generateBoard(String boardFile)
+	public void generateBoard(String boardFile) throws IOException
 	{
 		int x=0,y=0;
 
@@ -293,9 +293,26 @@ public class Simulator {
 		}
 
 	}
+/*
+	public void playerAction(String[] parts)
+	{
+		String[] actionsTrimmed = parts;
+		for(int b = 0; b < playerArray.length; b ++)
+		{
+				
+			for(int a = 0; a < 5; a ++)
+			{
+				actionsTrimmed.substring(actionsTrimmed.length
+				String actionGroup = parts[a]
+				for(int i = 0; i<playerArray.length;i++)
+				{
+					playerArray[i].instructRobot(instruction);
+				}
+			}
+		}
+*/
+	}
 
 
 
 
-
-}

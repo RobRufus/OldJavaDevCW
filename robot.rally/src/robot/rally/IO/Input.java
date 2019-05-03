@@ -42,7 +42,7 @@ public class Input {
 	}
 	*/
 
-	public String readFile(String fileName)
+	public String readFile(String fileName) throws IOException
 	{
 		//for each line read that line into a string with a line break character
 		StringBuilder contentString = new StringBuilder();
@@ -79,12 +79,14 @@ public class Input {
 
 	}
 
-	public void parseActionFile(String actionText)
+	public String[] parseActionFile(String actionText) throws IOException
 	{
-		//Replace the line breaks with space
-		actionText = actionText.replace("\n", " ");
 		//replace the formatting
 		actionText = actionText.replace("format 1", "");
+		//Replace the line breaks with space
+		String line = Files.readAllLines(Paths.get(fileName)).get(1);
+		System.out.println(line);
+		actionText = actionText.replace("\n", " ");
 		//Separate the string on spaces and enter them into a string array
 		String[] parts = actionText.split(" ");
 		//Loop through the string array and remove any extra spaces either side
@@ -95,6 +97,7 @@ public class Input {
 			parts[i] = trimmed;
 			//System.out.println(parts[i]);
 		}
+		return parts;
 	}
 
 

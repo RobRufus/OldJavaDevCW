@@ -241,10 +241,10 @@ public class BoardController {
 		//Image image = new Image("C:/cscw/coursework/GameArt/A.png");
 		//grid.getChildren().add(imageView);
 		//System.out.println("buttz");
-		Stage primaryStage = Launcher.getPrimaryStage();
-		Scene scene = new Scene(grid);
-	    primaryStage.setScene(scene);
-	    primaryStage.show();
+		//Stage primaryStage = Launcher.getPrimaryStage();
+		//Scene scene = new Scene(grid);
+	   // primaryStage.setScene(scene);
+	   // primaryStage.show();
 	}
     
 }
