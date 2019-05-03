@@ -7,7 +7,9 @@
 
 <AnchorPane prefHeight="300.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="robot.rally.view.LauncherController">
    <children>
-      <Button layoutX="156.0" layoutY="150.0" mnemonicParsing="false" onAction="#chooseFilePressed" text="Choose File" />
-      <Button layoutX="362.0" layoutY="150.0" mnemonicParsing="false" onAction="#donePressed" text="Done" />
+      <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#chooseFilePressed" text="Choose File" />
+      <Button layoutX="519.0" layoutY="14.0" mnemonicParsing="false" onAction="#donePressed" text="Done" />
+      <Label fx:id="boardFileLabel" layoutX="14.0" layoutY="137.0" text="Board file not selected..." />
+      <Label fx:id="actionFileLabel" layoutX="14.0" layoutY="259.0" text="Actions file not selected..." />
    </children>
 </AnchorPane>

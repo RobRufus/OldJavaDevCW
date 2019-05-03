@@ -1,5 +1,6 @@
 package robot.rally.view;
 
+
 import java.io.File;
 import java.io.IOException;
 
@@ -9,6 +10,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import robot.rally.game.*;
@@ -37,7 +39,8 @@ public class LauncherController {
 		primaryStage.setScene(boardView);
 		primaryStage.show();
 	}
-	
+	@FXML private Label boardFileLabel;
+	@FXML private Label actionsFileLabel;
 	
 	private Launcher launcher;
 	
