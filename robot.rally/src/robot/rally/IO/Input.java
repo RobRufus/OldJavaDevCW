@@ -83,6 +83,8 @@ public class Input {
 	{
 		//Replace the line breaks with space
 		actionText = actionText.replace("\n", " ");
+		//replace the formatting
+		actionText = actionText.replace("format 1", "");
 		//Separate the string on spaces and enter them into a string array
 		String[] parts = actionText.split(" ");
 		//Loop through the string array and remove any extra spaces either side
