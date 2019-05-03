@@ -254,15 +254,26 @@ public class Simulator {
 
 	public void deadBotCheck()
 	{
+		Robot aRobot = new Robot(1,1);									//a robot instance to compare against
+
 		//checks for any dead robots and sets them to be respawned.
 		for(int y=0; y < playerArray.length ; y++)
 		{
 			if (!playerArray[y].robotControlling.isAlive())
 			{
 				playerArray[y].robotControlling.setState(true);
-				playerArray[y].robotControlling.updateLocation(1, 1);
+				playerArray[y].robotControlling.updateLocation(playerArray[y].getSpawnX(), playerArray[y].getSpawnY());
+
+				for(int x=0; x<5; x++)	//5 locations checked by get adjacent, the location and the cardinal directions around it.
+				{
+					if ( instanceOfBoard.getAdjacent(playerArray[y].getSpawnX(), playerArray[y].getSpawnY())[x].get(1) !=  aRobot)							//
+					{
+						instanceOfBoard.placeEntity( instanceOfBoard.getAdjacent(playerArray[y].getSpawnX(), playerArray[y].getSpawnY())[x].get(1).getLocationX(), instanceOfBoard.getAdjacent(playerArray[y].getSpawnX(), playerArray[y].getSpawnY())[x].get(1).getLocationY(), playerArray[y].robotControlling);
+					}
+				}
 			}
 		}
+
 	}
 
 
