@@ -2,14 +2,13 @@ package robot.rally.game;
 
 import java.io.IOException;
 import java.util.ArrayList;
-
 import org.junit.Test;
 
 import robot.rally.model.*;
 
 
 public class Simulator {
-
+	
 	//private ArrayList[][] board;
 	private int numOfPlayers;
 	private String[] playerName;
@@ -20,13 +19,13 @@ public class Simulator {
 	public robot.rally.IO.Output outputBoard;
 	//creates an array of all the players at the start of the game.
 	public robot.rally.game.Player[] playerArray;
-
-	public Simulator(int playerNumber, int flagTotal, String[] pName)
+	
+	public Simulator(int playerNumber, int flagTotal)
 	{
 		//Simulator class constructor
 		numOfPlayers = playerNumber;
 		outputBoard = new robot.rally.IO.Output();
-		playerName = pName;
+		playerName = new String[5];
 		//numOfFlags =  flagTotal;
 
 	}
