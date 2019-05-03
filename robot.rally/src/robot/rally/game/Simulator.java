@@ -112,13 +112,13 @@ public class Simulator {
 	*/
 
 
-	public void generateBoard(String board)
+	public void generateBoard(String boardFile)
 	{
 		int x=0,y=0;
 
 		//read board file
-		//robot.rally.IO.Input inputString = new robot.rally.IO.Input();
-		String boardData = board;
+		robot.rally.IO.Input inputString = new robot.rally.IO.Input();
+		String boardData = inputString.readFile(boardFile);
 
 
 		for (int i = 0; i < boardData.length();)		//iterates through the file string, reseting the corresponding board location when appropriate.
@@ -256,7 +256,7 @@ public class Simulator {
 			{
 				outputBoard.OutToConsole(playerArray[y]);
 				outputBoard.printBoard(instanceOfBoard);
-				outputBoard.writeFile();
+				outputBoard.writeFile(playerArray[y]);
 			}
 		}
 	}
