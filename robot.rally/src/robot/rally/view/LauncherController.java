@@ -17,13 +17,25 @@ import robot.rally.game.*;
 
 public class LauncherController {
 	
+	private File boardFile;
+	private File actionFile;
+	
 	@FXML public void chooseFilePressed() {
 		FileChooser fileChooser = new FileChooser();
 		File selectedFile = fileChooser.showOpenDialog(null);
-		 
+		String fileName = selectedFile.getName();
+		
+		
+		
 		if (selectedFile != null) {
-		 
-		    System.out.println("File selected: " + selectedFile.getPath());
+			System.out.println("File selected: " + selectedFile.getPath());
+			if(fileName.substring(fileName.length()- 4).equals(".brd"))
+		    {
+				boardFile = selectedFile;
+		    }
+			else if(fileName.substring(fileName.length() - 4).equals(".prg")) {
+				actionFile = selectedFile;
+			}
 		}
 		else {
 			System.out.println("File selection cancelled.");
