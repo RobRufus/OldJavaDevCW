@@ -17,7 +17,7 @@ public class Output {
 
 		for (int i = 0; i < 10; i++)
 		{
-			writeFile.write("The Winner is player" + player.getPlayerID() );
+			writeFile.write("The Winner is player" + player.getPlayerID() + " whos name is " + player.getPlayerName() + " /n" );
 		}
 		writeFile.close();
 
