@@ -20,6 +20,7 @@ public class Simulator {
 	public robot.rally.IO.Output outputBoard;
 	//creates an array of all the players at the start of the game.
 	public robot.rally.game.Player[] playerArray;
+	private String boardData;
 	
 	public Simulator(int playerNumber, int flagTotal)
 	{
@@ -119,7 +120,7 @@ public class Simulator {
 
 		//read board file
 		robot.rally.IO.Input inputString = new robot.rally.IO.Input();
-		String boardData = inputString.readFile(boardFile);
+		boardData = inputString.readFile(boardFile);
 
 
 		for (int i = 0; i < boardData.length();)		//iterates through the file string, reseting the corresponding board location when appropriate.
@@ -211,7 +212,7 @@ public class Simulator {
 	}
 
 
-	public void stepThroughBoard()
+	public void stepThroughBoard() throws Exception
 	{
 		//activates board entities one by one after the player movement			//----------------------------needs working on
 
@@ -224,7 +225,8 @@ public class Simulator {
 			}
 		}
 		BoardController boardController = new BoardController();
-		//boardController.displayBoard();
+		
+		boardController.displayBoard(instanceOfBoard, boardData);
 	}
 
 

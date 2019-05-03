@@ -31,7 +31,7 @@ public class Launcher extends Application {
 	String boardFilePath;
 	Input input;
 	Simulator simulator;
-    private Stage primaryStage;
+    private static Stage primaryStage;
     private BorderPane rootLayout;
     Scene launcherScene, boardScene;
     
@@ -45,8 +45,8 @@ public class Launcher extends Application {
      */
     
     public void start(Stage primaryStage) {
-        this.primaryStage = primaryStage;
-        this.primaryStage.setTitle("RoboRally launcher");
+        Launcher.primaryStage = primaryStage;
+        Launcher.primaryStage.setTitle("RoboRally launcher");
 
         initRootLayout();
         
@@ -77,6 +77,9 @@ public void initRootLayout() {
     }
     
 
+
+
+
 public void showLauncher() {
     try {
         // Load launcher screen.
@@ -98,7 +101,7 @@ public void showBoard() {
 
 
 
-public Stage getPrimaryStage() {
+public static Stage getPrimaryStage() {
 	return primaryStage;
 	
 }
