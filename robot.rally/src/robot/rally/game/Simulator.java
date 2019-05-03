@@ -219,7 +219,7 @@ public class Simulator {
 			for(int y=0; y<instanceOfBoard.getBoardHeight(); y++)
 			{
 				GridEntity entity = instanceOfBoard.getLocation(x, y).get(0);
-				entity.activate(instanceOfBoard, x, y, instanceOfBoard, robot);		//do the robot properly
+				entity.activate(instanceOfBoard, x, y, robot);		//do the robot properly
 			}
 		}
 

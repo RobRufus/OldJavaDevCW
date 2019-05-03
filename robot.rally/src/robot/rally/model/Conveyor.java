@@ -35,7 +35,7 @@ public class Conveyor extends GridEntity  {
 	 * @param robot This is the {@link Robot} being affected by activation of the {@link GridEntity}.
 	 */
 	
-	public void activate(Board currentBoard,int locationX, int locationY, Board updatedBoard, Robot robot)
+	public void activate(Board currentBoard,int locationX, int locationY, Robot robot)
 	{
 		//override activate function in GridEntity
 		Direction dir = robot.checkHeading();

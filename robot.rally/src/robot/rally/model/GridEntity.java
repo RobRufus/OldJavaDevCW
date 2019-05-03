@@ -38,7 +38,7 @@ public abstract class GridEntity {
 		 * @param robot This is the {@link Robot} being affected by activation of the {@link GridEntity}.
 		 */
 
-		public abstract void activate(Board currentBoard,int locationX, int locationY, Board updatedBoard, Robot robot);
+		public abstract void activate(Board currentBoard,int locationX, int locationY, Robot robot);
 
 		/**
 		 * This returns the Row for the GridEntity.

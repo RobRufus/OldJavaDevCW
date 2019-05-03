@@ -37,15 +37,16 @@ public class Cog extends GridEntity  {
 	 * @param robot This is the {@link Robot} being affected by activation of the {@link GridEntity}.
 	 */
 	
-	public void activate(Board currentBoard, int locationX, int locationY, Board updatedBoard, Robot robot)
+	public void activate(Board currentBoard, int locationX, int locationY, Robot robot)
 	{
-		Direction newDirection = robot.checkHeading(); // Local variable that holds the robots direction
+		Direction currentDirection = robot.checkHeading(); // Local variable that holds the robots direction
+		Direction newDirection = null;
 			switch (rotation) { // Updates direction based on if gear is clockwise or anticlockwise
 				case CLOCKWISE:
-					newDirection.turnClockwise();
+					newDirection = currentDirection.turnClockwise();
 				break;
 				case COUNTERCLOCKWISE:
-					newDirection.turnCounterClockwise();
+					newDirection = currentDirection.turnCounterClockwise();
 				break;
 				default:
 				break;
