@@ -15,6 +15,7 @@ public class Simulator {
 	//private int numOfFlags;
 	//creates a board object at the start of the game.
 	public robot.rally.model.Board instanceOfBoard;
+	public robot.rally.IO.Output outputBoard;
 	//creates an array of all the players at the start of the game.
 	public robot.rally.game.Player[] playerArray;
 
@@ -22,6 +23,7 @@ public class Simulator {
 	{
 		//Simulator class constructor
 		numOfPlayers = playerNumber;
+		outputBoard = new robot.rally.IO.Output();
 		//numOfFlags =  flagTotal;
 
 	}
@@ -114,7 +116,6 @@ public class Simulator {
 
 		//read board file
 		//robot.rally.IO.Input inputString = new robot.rally.IO.Input();
-		robot.rally.IO.Output outputBoard = new robot.rally.IO.Output();
 		String boardData = board;
 
 
@@ -250,6 +251,18 @@ public class Simulator {
 		/*checks if all the flags have been collected and displays the winner
 		 * is player X along with saving to file.
 		 */
+
+		for(int y=0; y < playerArray.length ; y++)
+		{
+			if (playerArray[y].getFlagTracker() == 4)
+			{
+				outputBoard.OutToConsole(playerArray[y]);
+				outputBoard.printBoard(instanceOfBoard);
+				outputBoard.writeFile();
+			}
+		}
+
+
 	}
 
 	public void deadBotCheck()
@@ -266,7 +279,7 @@ public class Simulator {
 
 				for(int x=0; x<5; x++)	//5 locations checked by get adjacent, the location and the cardinal directions around it.
 				{
-					if ( instanceOfBoard.getAdjacent(playerArray[y].getSpawnX(), playerArray[y].getSpawnY())[x].get(1) !=  aRobot)							//
+					if ( instanceOfBoard.getAdjacent(playerArray[y].getSpawnX(), playerArray[y].getSpawnY())[x].get(1) !=  aRobot)							//bot put in first available location
 					{
 						instanceOfBoard.placeEntity( instanceOfBoard.getAdjacent(playerArray[y].getSpawnX(), playerArray[y].getSpawnY())[x].get(1).getLocationX(), instanceOfBoard.getAdjacent(playerArray[y].getSpawnX(), playerArray[y].getSpawnY())[x].get(1).getLocationY(), playerArray[y].robotControlling);
 					}

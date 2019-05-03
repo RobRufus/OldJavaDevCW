@@ -51,4 +51,8 @@ public class Player {
 	public int getSpawnY() {
 		return spawnY;
 	}
+
+	public int getPlayerID() {
+		return playerID;
+	}
 }
