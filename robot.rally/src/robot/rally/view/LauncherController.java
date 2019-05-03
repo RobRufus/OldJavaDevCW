@@ -32,9 +32,14 @@ public class LauncherController {
 			if(fileName.substring(fileName.length()- 4).equals(".brd"))
 		    {
 				boardFile = selectedFile;
+				boardFileLabel.setText("Board file set to:" + fileName);
 		    }
 			else if(fileName.substring(fileName.length() - 4).equals(".prg")) {
 				actionFile = selectedFile;
+				actionFileLabel.setText("Action file set to:" + fileName);
+			}
+			else {
+				System.out.println("File invalid");
 			}
 		}
 		else {
@@ -52,7 +57,7 @@ public class LauncherController {
 		primaryStage.show();
 	}
 	@FXML private Label boardFileLabel;
-	@FXML private Label actionsFileLabel;
+	@FXML private Label actionFileLabel;
 	
 	private Launcher launcher;
 	
