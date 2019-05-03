@@ -94,6 +94,3 @@ package robot.rally.model;
 		*/
 		
 public abstract void run(Robot robot);}
-
-			
-
