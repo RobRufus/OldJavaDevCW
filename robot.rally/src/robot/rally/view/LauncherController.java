@@ -49,7 +49,7 @@ public class LauncherController {
 			System.out.println("File selection cancelled.");
 		}
 	}
-	@FXML public void donePressed(ActionEvent event) throws IOException{
+	@FXML public void donePressed(ActionEvent event) throws Exception {
 		Parent boardViewParent = FXMLLoader.load(getClass().getResource("../view/Board.fxml"));
 		Scene boardView = new Scene(boardViewParent);
 		
@@ -61,6 +61,9 @@ public class LauncherController {
 		primaryStage.setScene(boardView);
 		primaryStage.show();
 		
+		//test
+		BoardController boardController = new BoardController();
+		boardController.displayBoard();
 		
 	}
 	@FXML private Label boardFileLabel;

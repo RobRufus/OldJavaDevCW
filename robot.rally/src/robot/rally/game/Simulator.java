@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import org.junit.Test;
 
 import robot.rally.model.*;
+import robot.rally.view.BoardController;
 
 
 public class Simulator {
@@ -222,7 +223,8 @@ public class Simulator {
 				entity.activate(instanceOfBoard, x, y, robot);		//do the robot properly
 			}
 		}
-
+		BoardController boardController = new BoardController();
+		//boardController.displayBoard();
 	}
 
 
