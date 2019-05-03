@@ -63,7 +63,7 @@ public class LauncherController {
 		
 		//test
 		BoardController boardController = new BoardController();
-		boardController.displayBoard();
+		boardController.displayBoard(primaryStage);
 		
 	}
 	@FXML private Label boardFileLabel;
