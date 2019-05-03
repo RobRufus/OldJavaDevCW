@@ -1,5 +1,13 @@
 package robot.rally.model;
 
+
+/** 
+ * Enum class holding the available Actions a {@link Robot} can perform.
+ * 
+ * @author Team18.
+ *
+ */
+
 	public enum Action { // The actions that a robot can perform
 		
 	FORWARD { // Updates the location of the robot
@@ -76,6 +84,16 @@ package robot.rally.model;
 			// assert: true;
 		};
 	};
+
+
+		/**
+		* 
+		* Performs specified Action using {@link Robot} and {@link Direction} methods.
+		* 
+		* @param robot The robot performing the specified Action
+		*/
 		
 public abstract void run(Robot robot);}
-	
+
+			
+
