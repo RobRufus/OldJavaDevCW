@@ -259,8 +259,10 @@ public class Simulator {
 					outputBoard.printBoard(instanceOfBoard);
 					outputBoard.writeFile(playerArray[y]);
 				}
-				catch (IOException e) {
+				catch (IOException e) 
+				{
 					e.printStackTrace();
+				}
 			}
 		}
 	}
