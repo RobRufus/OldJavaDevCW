@@ -6,9 +6,12 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.stream.Stream;
 
+import robot.rally.game.Player;
+import robot.rally.game.Simulator;
+
 public class Input {
 
-
+	private String[] names;
 	private String fileData, fileName;
 
 
@@ -17,30 +20,8 @@ public class Input {
 		//constructor for input class
 		fileData = "filedata";
 		fileName = "conveyor-loops.brd";
+		
 	}
-
-	/*
-	public String readBoardFile(String theFileName)
-	{
-
-		//for each line read that line into a string with a line break character
-		StringBuilder contentString = new StringBuilder();
-
-		//read in each line
-	    try (Stream<String> fileStream = Files.lines( Paths.get(theFileName), StandardCharsets.UTF_8))
-	    {
-	        fileStream.forEach(i -> contentString.append(i).append("\n")); 		//separate the string with line break characters
-	    }
-	    catch (IOException prntException)										//print exception when error occours
-	    {
-	    	prntException.printStackTrace();
-	    }
-
-	    //return file content string
-	    return contentString.toString();
-
-	}
-	*/
 
 	public String readFile(String fileName) throws IOException
 	{
@@ -60,57 +41,61 @@ public class Input {
 	    //If the file extension is a board file return the processed file as a string
 	    if(fileName.substring(fileName.length()- 4).equals(".brd"))
 	    {
-	    	/*
-	    	for (int i = 0; i < contentString.toString().length(); i++)
-	    	{
-	    		if (contentString.toString().charAt(i) == )
-	    		{
-
-	    		}
-	    	}
-	    	*/
-	    	System.out.println(contentString.toString());
 	    	return contentString.toString();
 	    }
 	    //If the file extension is an action file call the parseActionFile function to process the action file further
 	    else if(fileName.substring(fileName.length() - 4).equals(".prg"))
-	    	parseActionFile(contentString.toString());
-	   return "fail";
+	    	parseAction(contentString.toString());
+	   return "Invalid file";
 
 	}
 
-	public String[] parseActionFile(String actionText) throws IOException
+	public String[] parseAction(String actionText) throws IOException
 	{
 		//replace the formatting
 		actionText = actionText.replace("format 1", "");
-		//Replace the line breaks with space
-		
-		
 		//Separate the string on spaces and enter them into a string array
-		String[] parts = actionText.split(" ");
-		
+		String[] parts = actionText.split(" ");			
 		//Loop through the string array and remove any extra spaces either side
 		for(int i = 0; i < parts.length; i++)
-		{
-			//System.out.print(parts[i] + " ");
+		{	
+			//Replace the line breaks with space
 			actionText = parts[i].replace("\n", " ");
-			//for(int a = 0; i <  )
-			System.out.print(parts[i] + " ");
-
 			String trimmed = parts[i].trim();
 			//Replace the entries with the trimmed ones
-			parts[i] = trimmed;
-			//System.out.println(parts[i]);
+			parts[i] = trimmed;			
+			System.out.print(parts[i]);
 		}
+		//return parts;		
+		
+		actionText = actionText.replace("format 1", "");
+		String[] lines = actionText.split("\n");
+		
+		
+		
+		
 		return parts;
-		
-		
-		
-		
-		
-		
 	}
 
+	public String[] parsePlayerNames(String actionText)
+	{
+		actionText = actionText.replace("format 1", "");
+		String[] lines = actionText.split("\n");
+		String ln2 = lines[1];	
+		names = ln2.split(" ");
+		for(int a = 0; a < names.length; a++)
+		{
+			
+			
+		}
+		
+		return names;
+	}
+	
+	public String getPlayerNames(int index)
+	{
+		return names[index];
+	}
 
 	public String readPlayerInput()
 	{

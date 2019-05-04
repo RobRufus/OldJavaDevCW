@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import org.junit.Test;
 
+import robot.rally.IO.Input;
 import robot.rally.model.*;
 import robot.rally.view.BoardController;
 
@@ -22,102 +23,19 @@ public class Simulator {
 	public robot.rally.game.Player[] playerArray;
 	private String boardData;
 	
-	public Simulator(int playerNumber, int flagTotal)
+	public Simulator(int playerNumber)
 	{
 		//Simulator class constructor
 		numOfPlayers = playerNumber;
 		outputBoard = new robot.rally.IO.Output();
 		playerName = new String[5];
-		//numOfFlags =  flagTotal;
-
 	}
-
-	/*
-
-
-	@Test
-	public void Main()
-	{
-
-		Cog cog = new Cog(+);
-		Conveyor conveyor = new Conveyor();
-		Flag flag = new Flag();
-		Pit pit = new Pit();
-		Robot robot = new Robot();
-		SpawnPoint spawn = new SpawnPoint();
-		ArrayList[][] board = new ArrayList[5][5];
-
-
-		//the code here itterates through the board grid and instantiates it
-		for (int i = 0; i < 5; i++)
-		{
-			for (int j = 0; j < 5; j++)
-			{
-				board[i][j] = new ArrayList();
-				board[i][j].add("-");
-			}
-		}
-
-
-		//board[0][0].set(0, cog);		//example board elements set
-		board[4][4].set(0, conveyor);
-		board[1][2].set(0, flag);
-		board[2][3].set(0, robot);
-		board[0][4].set(0, spawn);
-
-
-		//creates a string to be added to so that the board can be displayed
-		String toPrint = " ";
-
-		//iterates through the board checking at each location for the contents
-		for (int i = 0; i < 5; i++)
-		{
-			for (int j = 0; j < 5; j++)
-			{
-
-				//determines what to display based on what is in the location
-				if(board[i][j].get(0) instanceof Conveyor )
-				{
-					toPrint += ">";
-				}
-				else if( board[i][j].get(0) instanceof Cog )
-				{
-					toPrint += "+" ;
-				}
-				else if( board[i][j].get(0) instanceof Flag )
-				{
-					toPrint += "1" ;
-				}
-				else if( board[i][j].get(0) instanceof SpawnPoint )
-				{
-					toPrint += "A" ;
-				}
-				else if( board[i][j].get(0) instanceof Robot )
-				{
-					toPrint += "R" ;
-				}
-				else
-				{
-					toPrint += "." ;
-				}
-
-
-			}
-			//every 5 locations goes onto a new line
-			toPrint += " \n ";
-		}
-		//prints the board out to the user.
-		System.out.println(toPrint);
-
-	}
-
-	*/
-
 
 	public void generateBoard(String boardFile) throws IOException
 	{
 		int x=0,y=0;
-
+		int numOfFlags = 0;
+		Input input = new Input();
 		//read board file
 		robot.rally.IO.Input inputString = new robot.rally.IO.Input();
 		boardData = inputString.readFile(boardFile);
@@ -153,15 +71,19 @@ public class Simulator {
 				{
 
 				case '1':  instanceOfBoard.placeEntity(x, y, new robot.rally.model.Flag(x,y, 1));
+				
 				y++;
 					break;
 				case '2':  instanceOfBoard.placeEntity(x, y, new robot.rally.model.Flag(x,y, 2));
+				numOfFlags++;
 				y++;
 					break;
 				case '3':  instanceOfBoard.placeEntity(x, y, new robot.rally.model.Flag(x,y, 3));
+				numOfFlags++;
 				y++;
             		break;
 				case '4':  instanceOfBoard.placeEntity(x, y, new robot.rally.model.Flag(x,y, 4));
+				numOfFlags++;
 				y++;
             		break;
 				case '+':  instanceOfBoard.placeEntity(x, y, new robot.rally.model.Cog(x,y,Rotation.CLOCKWISE));
@@ -174,7 +96,7 @@ public class Simulator {
 				y++;
             		break;
 				case 'A':  instanceOfBoard.placeEntity(x, y, new robot.rally.model.SpawnPoint(x,y,1));
-				createPlayer(1, x, y);
+				createPlayer(input.getPlayerNames(actionText), x, y);
 				y++;
             		break;
 				case 'B':  instanceOfBoard.placeEntity(x, y, new robot.rally.model.SpawnPoint(x,y,2));
@@ -248,7 +170,8 @@ public class Simulator {
 	}
 	*/
 
-	public void flagSuccessCheck()
+
+	public void flagSuccessCheck(int flagTotal)
 	{
 		/*checks if all the flags have been collected and displays the winner
 		 * is player X along with saving to file.
@@ -256,7 +179,7 @@ public class Simulator {
 
 		for(int y=0; y < playerArray.length ; y++)
 		{
-			if (playerArray[y].getFlagTracker() == 4)
+			if (playerArray[y].getFlagTracker() == flagTotal)
 			{	try {
 					outputBoard.OutToConsole(playerArray[y]);
 					outputBoard.printBoard(instanceOfBoard);
